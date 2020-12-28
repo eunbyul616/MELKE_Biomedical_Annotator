@@ -1,0 +1,9 @@
+NCT00005937	Antithymocyte Globulin and Cyclosporine to Treat Myelodysplasia
+NCT00005938	DX-8951f in Treating Patients With Biliary Cancer
+NCT00005939	Brachytherapy in Treating Patients With Recurrent Prostate Cancer
+NCT00005940	Radiolabeled BC8 Antibody, Busulfan, Cyclophosphamide Followed by Donor Stem Cell Transplant in Treating Patients With Acute Myelogenous Leukemia in First Remission
+NCT00005941	Peripheral Stem Cell Transplant, White Blood Cell Infusions, Chemotherapy, and Radiation Therapy in Treating Patients With Recurrent Metastatic Cervical or Vaginal Cancer
+NCT00005942	Liposomal Daunorubicin and SU5416 in Treating Patients With Hematologic Cancer That Has Not Responded to Initial Therapy
+NCT00005943	Gene Therapy in Treating Patients With Metastatic Melanoma
+NCT00005944	Second-look Surgery With or Without Intraperitoneal Chemotherapy in Treating Patients With Recurrent Colorectal Cancer
+NCT00005945	Comparison of Different Combination Chemotherapy Regimens in Treating Children With Acute Lymphoblastic Leukemia

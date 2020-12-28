@@ -1,0 +1,2 @@
+sent_id,entity_id,entity_name,entity_type,span_begin,span_end,modify_type
+NCT000001020,NCT00000102_0_T0,nifedipine,COMPOUND,22,22,add

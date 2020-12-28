@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>MELKE WEB ANNOTATION</title>
+</head>
+<body>
+	<div class="container-fluid p-0 border-bottom mb-5" style="border: gray">
+		<div class="mt-2">
+			<nav class="navbar navbar-light row">
+				<a class="col-7 navbar-brand h1 mt-1 mx-0 text-center" href="/annotation">MELKE WEB ANNOTATION</a>
+				<div class="col-3 text-right mr-3">
+          <a class="text-muted" href="{% url 'admin:index' %}">&nbsp;&nbsp;Admin Page&nbsp;&nbsp;</a>
+				</div>
+			</nav>
+		</div>
+	</div>
+    <div class="container mb-5">
+        <form action="{% url 'selected' %}" method="get">
+            <div class="input-group">
+                <input class="form-control mr-sm-1 ml-1" type="search" name="pm_id" id="pm_id" placeholder="pmid" aria-label="Search" required>
+                <select class="custom-select" name="selected_file" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected disabled>Choose File</option>
+                    {% for file in file_list %}
+                        <option value="{{ file }}">{{ file }}</option>
+                    {% endfor %}
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" value="Submit">&nbsp;&nbsp;Read&nbsp;&nbsp;</button>
+                </div>
+            </div>
+        </form>
+        {% if save %}
+            <div class="alert alert-secondary mt-3" role="alert">Save Finish!</div>
+        {% endif %}
+        <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+            <div class="mt-5 text-right">
+                <button class="btn btn-outline-secondary" type="submit" value="Submit">&nbsp;&nbsp;Save&nbsp;&nbsp;</button>
+            </div>
+            <div class="mb-3"><h6>PMID: {{ pmid }}</h6></div>
+            <h5 class="mt-3 ml-3 mb-3">Entity</h5>
+            <table class="table p-5">
+              <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">sentence id</th>
+                    <th scope="col">entity id</th>
+                    <th scope="col">entity name</th>
+                    <th scope="col">entity type</th>
+                    <th scope="col">span begin</th>
+                    <th scope="col">span end</th>
+                    <th scope="col">modify type</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <fieldset class="form-group">
+                      {% for d in entities %}
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="entity" id="gridCheck1" value={{ forloop.counter0 }} checked>
+                                    </div>
+                                </td>
+                                {% for i in d %}
+                                    <td>{{ i }}</td>
+                                {% endfor %}
+                            </tr>
+                      {% endfor %}
+                  </fieldset>
+              </tbody>
+            </table>
+            <h5 class="mt-5 ml-3 mb-3">Relation</h5>
+            <table class="table p-5">
+              <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">sentence id</th>
+                    <th scope="col">relation id</th>
+                    <th scope="col">relation type</th>
+                    <th scope="col">entity1 id</th>
+                    <th scope="col">entity2 id</th>
+                    <th scope="col">modify type</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <fieldset class="form-group">
+                      {% for d in relations %}
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="relation" id="gridCheck1" value={{ forloop.counter0 }} checked>
+                                    </div>
+                                </td>
+                                {% for i in d %}
+                                    <td>{{ i }}</td>
+                                {% endfor %}
+                            </tr>
+                      {% endfor %}
+                  </fieldset>
+              </tbody>
+            </table>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
